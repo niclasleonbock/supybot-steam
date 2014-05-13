@@ -79,7 +79,7 @@ class Steam(callbacks.Plugin):
         steamid = self.db.getId(name)
 
         if not steamid:
-            return irc.error("No steamaccount is linked to nickname " + name)
+            return irc.error("No steamaccount is linked to nickname " + name + ".")
 
         status = self.fetch_summary(steamid)
         game = "is playing " + status["gameextrainfo"] if "gameextrainfo" in status else "isn't playing any game"
@@ -96,7 +96,7 @@ class Steam(callbacks.Plugin):
         """
 
         if not steamid:
-            return irc.error("SteamID (steamid64) is required.")
+            return irc.error("SteamID (steamid64) is required. You may use http://steamidconverter.com/ to get it.")
 
         status = self.fetch_summary(steamid)
 
